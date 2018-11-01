@@ -36,73 +36,59 @@ namespace MyStore.Testes
         public void LoadPage()
         {
             _driver.Url = _configuration.GetSection("Selenium:UrlMyStore").Value;
-            //_driver.LoadPage(TimeSpan.FromSeconds(15),
-            //    _configuration.GetSection("Selenium:UrlMyStore").Value);
         }
 
-        public void Summary(string product)
+        public void Summary()
         {
-            IWebElement aLinkBtn;
-            //_driver.Submit(By.CssSelector(product));
-            _driver.Url = product;
-            //aLinkBtn = _driver.FindElement(By.LinkText("Add to cart"));            
-            //aLinkBtn.Click();
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            wait.Until((d) => d.FindElement(By.LinkText("Proceed to checkout")) != null);
-            aLinkBtn = _driver.FindElement(By.LinkText("Proceed to checkout"));
-            aLinkBtn .Click();
+            _driver.Click(By.XPath(MyStorePageMap.FirstProductImage));
+            _driver.WaitNClick(15, By.Name(MyStorePageMap.AddToCartButton));
+            _driver.WaitNClick(10, By.LinkText(MyStorePageMap.ProceedToCheckout));
+            _driver.WaitNClick(10, By.LinkText(MyStorePageMap.ProceedToCheckout));
         }
 
         public void Login(string clientEmail, string clientPass)
         {
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            wait.Until((d) => d.FindElement(By.Id("email")) != null);
-            IWebElement aTextInput = _driver.FindElement(By.Id("email"));
-            aTextInput.SendKeys(clientEmail);
-            aTextInput = _driver.FindElement(By.Id("passwd"));
+            _driver.WaitNSetText(10, By.Id(MyStorePageMap.Email), clientEmail);
+            IWebElement aTextInput = _driver.FindElement(By.Id(MyStorePageMap.Password));
             aTextInput.SendKeys(clientPass);
             aTextInput.SendKeys(Keys.Tab);
             aTextInput.SendKeys(Keys.Tab);
             aTextInput.SendKeys(Keys.Enter);
+            //todo: se houve falha de autenticação, entrar na criação de conta
+            /*if (By.XPath(MyStorePageMap.AuthFailedElement) != null)
+            {
+                string failedText = _driver.GetText(By.XPath(MyStorePageMap.AuthFailedElement));
+                if (failedText == MyStorePageMap.AuthFailedText)
+                {
+                    // todo: create account
+                    _driver.SetText(By.Id(MyStorePageMap.EmailCreate), clientEmail);
+                    _driver.Click(By.Id(MyStorePageMap.SubmitCreate));
+
+                }
+            }*/
         }
 
         public void Address(string address)
         {
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            wait.Until((d) => d.FindElement(By.Name("processAddress")) != null);
-            IWebElement aLinkBtn = _driver.FindElement(By.Name("processAddress"));
-            aLinkBtn.Click();
-            //return Convert.ToDouble(
-            //    _driver.GetText(By.Id("DistanciaKm")));
+            _driver.WaitNClick(10, By.Name(MyStorePageMap.ProcessAddress));
         }
 
         public void Shipping()
         {
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            wait.Until((d) => d.FindElement(By.Id("cgv")) != null);
-            IWebElement aCheckbox = _driver.FindElement(By.Id("cgv"));
-            aCheckbox.Click();
-            wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            wait.Until((d) => d.FindElement(By.Name("processCarrier")) != null);
-            IWebElement aLinkBtn = _driver.FindElement(By.Name("processCarrier"));
-            aLinkBtn.Click();
+            _driver.WaitNClick(10, By.Id(MyStorePageMap.TermsOfService));
+            _driver.WaitNClick(10, By.Name(MyStorePageMap.ProcessShipping));
         }
 
-        public void Payment()
+        public void Payment(string paymentBy)
         {
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            wait.Until((d) => d.FindElement(By.ClassName("bankwire")) != null);
-            IWebElement aLinkBtn = _driver.FindElement(By.ClassName("bankwire"));
-            aLinkBtn.Click();
+            _driver.WaitNClick(10, By.ClassName(paymentBy));
         }
 
         public Boolean Confirm()
         {
-            ///html/body/div/div[2]/div/div[3]/div/form/p/button
-            IWebElement aLinkBtn = _driver.FindElement(By.XPath("/html/body/div/div[2]/div/div[3]/div/form/p/button"));
-            aLinkBtn.Click();
-            IWebElement aP = _driver.FindElement(By.XPath("/html/body/div/div[2]/div/div[3]/div/div/p/strong"));
-            return (aP.Text == "Your order on My Store is complete.");
+            _driver.Click(By.XPath(MyStorePageMap.OrderConfirmationButton));
+            string orderConfirmationText = _driver.GetText(By.XPath(MyStorePageMap.OrderConfirmationTextElement));
+            return (orderConfirmationText == MyStorePageMap.OrderConfirmationText);
         }
 
         public void Close()

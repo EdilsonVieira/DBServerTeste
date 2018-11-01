@@ -6,11 +6,11 @@ using Selenium.Utils;
 
 namespace MyStore.Testes
 {
-    public class TestesComprasOnline
+    public class ComprasOnline
     {
         private IConfiguration _configuration;
 
-        public TestesComprasOnline()
+        public ComprasOnline()
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -21,22 +21,23 @@ namespace MyStore.Testes
         [Theory]
         //[InlineData(Browser.Firefox, 100, 160.9)]
         //[InlineData(Browser.Firefox, 230.05, 370.1505)]
-        [InlineData(Browser.Firefox, "http://automationpractice.com/index.php?controller=cart&add=1&id_product=1&token=e817bb0705dd58da8db074c69f729fd8", "vieira.edilson@gmail.com", "canada", "R Bahia, 288")]
+        [InlineData(Browser.Firefox, "vieira.edilson@gmail.com", "canada", "R Bahia, 288", MyStorePageMap.PaymentByBankWire)]
+        //[InlineData(Browser.Firefox, "vieira.edilson@gmail.com", "canada", "R Bahia, 288", MyStorePageMap.PaymentByCheck)]
         //[InlineData(Browser.Chrome, 100, 160.9)]
         //[InlineData(Browser.Chrome, 230.05, 370.1505)]
         //[InlineData(Browser.Chrome, 250.5, 403.0545)]
-        public void TestarCompra(
-            Browser browser, string targetProduct, string clientEmail, string clientPass, string clientAddress)
+        public void Compra_Completa(
+            Browser browser, string clientEmail, string clientPass, string clientAddress, string paymentBy)
         {
             MyStorePage aPage =  new MyStorePage(_configuration, browser);
             Boolean result = false;
 
             aPage.LoadPage();
-            aPage.Summary(targetProduct);
+            aPage.Summary();
             aPage.Login(clientEmail, clientPass);
             aPage.Address(clientAddress);
             aPage.Shipping();
-            aPage.Payment();
+            aPage.Payment(paymentBy);
             result = aPage.Confirm();
             aPage.Close();
             Assert.True(result);
