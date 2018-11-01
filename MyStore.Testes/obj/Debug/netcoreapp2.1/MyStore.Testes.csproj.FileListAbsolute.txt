@@ -1,0 +1,17 @@
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\bin\Debug\netcoreapp2.1\MyStore.Testes.deps.json
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\bin\Debug\netcoreapp2.1\MyStore.Testes.runtimeconfig.json
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\bin\Debug\netcoreapp2.1\MyStore.Testes.runtimeconfig.dev.json
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\bin\Debug\netcoreapp2.1\MyStore.Testes.dll
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\obj\Debug\netcoreapp2.1\MyStore.Testes.csprojAssemblyReference.cache
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\obj\Debug\netcoreapp2.1\MyStore.Testes.csproj.CoreCompileInputs.cache
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\obj\Debug\netcoreapp2.1\MyStore.Testes.AssemblyInfoInputs.cache
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\obj\Debug\netcoreapp2.1\MyStore.Testes.AssemblyInfo.cs
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\bin\Debug\netcoreapp2.1\MyStore.Testes.pdb
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\bin\Debug\netcoreapp2.1\Selenium.Utils.dll
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\bin\Debug\netcoreapp2.1\Selenium.Utils.pdb
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\obj\Debug\netcoreapp2.1\MyStore.Testes.csproj.CopyComplete
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\obj\Debug\netcoreapp2.1\MyStore.Testes.dll
+C:\Users\Daiana\source\repos\TestesDBServer\MyStore.Testes\obj\Debug\netcoreapp2.1\MyStore.Testes.pdb

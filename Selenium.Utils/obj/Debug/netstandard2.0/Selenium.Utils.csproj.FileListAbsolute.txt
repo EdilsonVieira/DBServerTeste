@@ -1,0 +1,9 @@
+C:\Users\Daiana\source\repos\TestesDBServer\Selenium.Utils\bin\Debug\netstandard2.0\Selenium.Utils.deps.json
+C:\Users\Daiana\source\repos\TestesDBServer\Selenium.Utils\bin\Debug\netstandard2.0\Selenium.Utils.dll
+C:\Users\Daiana\source\repos\TestesDBServer\Selenium.Utils\obj\Debug\netstandard2.0\Selenium.Utils.csprojAssemblyReference.cache
+C:\Users\Daiana\source\repos\TestesDBServer\Selenium.Utils\obj\Debug\netstandard2.0\Selenium.Utils.csproj.CoreCompileInputs.cache
+C:\Users\Daiana\source\repos\TestesDBServer\Selenium.Utils\obj\Debug\netstandard2.0\Selenium.Utils.AssemblyInfoInputs.cache
+C:\Users\Daiana\source\repos\TestesDBServer\Selenium.Utils\obj\Debug\netstandard2.0\Selenium.Utils.AssemblyInfo.cs
+C:\Users\Daiana\source\repos\TestesDBServer\Selenium.Utils\bin\Debug\netstandard2.0\Selenium.Utils.pdb
+C:\Users\Daiana\source\repos\TestesDBServer\Selenium.Utils\obj\Debug\netstandard2.0\Selenium.Utils.dll
+C:\Users\Daiana\source\repos\TestesDBServer\Selenium.Utils\obj\Debug\netstandard2.0\Selenium.Utils.pdb
