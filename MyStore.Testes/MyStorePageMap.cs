@@ -9,6 +9,7 @@ namespace MyStore.Testes
         public const string FirstProductImage = "/html/body/div/div[2]/div/div[2]/div/div[1]/ul[1]/li[1]/div/div[1]/div/a[1]/img";
         public const string AddToCartButton = "Submit";
         public const string ProceedToCheckout = "Proceed to checkout";
+        public const string TotalPrice = "total_price";
         public const string Email = "email";
         public const string Password = "passwd";
         public const string AuthFailedElement = "/html/body/div/div[2]/div/div[3]/div/div[1]/ol/li";
@@ -20,8 +21,10 @@ namespace MyStore.Testes
         public const string ProcessShipping = "processCarrier";
         public const string PaymentByBankWire = "bankwire";
         public const string PaymentByCheck = "cheque";
+        public const string Amount = "amount";
         public const string OrderConfirmationButton = "/html/body/div/div[2]/div/div[3]/div/form/p/button";
         public const string OrderConfirmationTextElement = "/html/body/div/div[2]/div/div[3]/div/div/p/strong";
+        public const string OrderConfirmationTextElementCheck = "/html/body/div/div[2]/div/div[3]/div/p[1]";
         public const string OrderConfirmationText = "Your order on My Store is complete.";
         // Personal Information
         public const string PersonalInfoTitleMr = "id_gender1";

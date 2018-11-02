@@ -32,18 +32,21 @@ namespace MyStore.Testes
 
             _driver = WebDriverFactory.CreateWebDriver(
                 browser, caminhoDriver);
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
         public void LoadPage()
         {
             _driver.Url = _configuration.GetSection("Selenium:UrlMyStore").Value;
         }
 
-        public void Summary()
+        public string Summary()
         {
             _driver.Click(By.XPath(MyStorePageMap.FirstProductImage));
             _driver.WaitNClick(15, By.Name(MyStorePageMap.AddToCartButton));
             _driver.WaitNClick(10, By.LinkText(MyStorePageMap.ProceedToCheckout));
+            string result = _driver.GetText(By.Id(MyStorePageMap.TotalPrice));
             _driver.WaitNClick(10, By.LinkText(MyStorePageMap.ProceedToCheckout));
+            return result;
         }
 
         private void CreateAccount(PersonalInfo clientData)
@@ -95,7 +98,7 @@ namespace MyStore.Testes
             aTextInput.SendKeys(Keys.Tab);
             aTextInput.SendKeys(Keys.Enter);
             // Se houve falha de autenticação, entrar na criação de conta
-            if (_driver.IsElementPresent(15, By.XPath(MyStorePageMap.AuthFailedElement)))
+            if (_driver.IsElementPresent(By.XPath(MyStorePageMap.AuthFailedElement)))
             {
                 string failedText = _driver.GetText(By.XPath(MyStorePageMap.AuthFailedElement));
                 if (failedText == MyStorePageMap.AuthFailedText)
@@ -121,11 +124,19 @@ namespace MyStore.Testes
             _driver.WaitNClick(10, By.ClassName(paymentBy));
         }
 
-        public Boolean Confirm()
+        public Boolean Confirm(string totalPrice, string paymentBy)
         {
+            string finalTotalPrice = _driver.GetText(By.Id(MyStorePageMap.Amount));
             _driver.Click(By.XPath(MyStorePageMap.OrderConfirmationButton));
-            string orderConfirmationText = _driver.GetText(By.XPath(MyStorePageMap.OrderConfirmationTextElement));
-            return (orderConfirmationText == MyStorePageMap.OrderConfirmationText);
+            string orderConfirmationText = "";
+            if (paymentBy == MyStorePageMap.PaymentByBankWire)
+            {
+                orderConfirmationText = _driver.GetText(By.XPath(MyStorePageMap.OrderConfirmationTextElement));
+            } else { 
+                orderConfirmationText = _driver.GetText(By.XPath(MyStorePageMap.OrderConfirmationTextElementCheck));
+            }
+            return ((orderConfirmationText == MyStorePageMap.OrderConfirmationText)
+                && (totalPrice == finalTotalPrice));
         }
 
         public void Close()

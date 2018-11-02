@@ -55,14 +55,12 @@ namespace Selenium.Utils
             IWebElement webElement = webDriver.FindElement(by);
             webElement.Submit();
         }
-        public static Boolean IsElementPresent(this IWebDriver webDriver, int timeToWait, By by)
+        public static Boolean IsElementPresent(this IWebDriver webDriver, By by)
         {
             try
             {
-                WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(timeToWait));
-                wait.Until((d) => d.FindElement(by) != null);
-                webDriver.FindElement(by);
-                return true;
+                IWebElement we = webDriver.FindElement(by);
+                return (we != null);
             }
             catch (NoSuchElementException)
             {

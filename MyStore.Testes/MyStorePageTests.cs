@@ -28,12 +28,12 @@ namespace MyStore.Testes
             MyStorePage aPage =  new MyStorePage(_configuration, browser);
 
             aPage.LoadPage();
-            aPage.Summary();
+            string TotalPrice = aPage.Summary();
             aPage.Login(clientData);
             aPage.Address(clientData);
             aPage.Shipping();
             aPage.Payment(paymentBy);
-            result = aPage.Confirm();
+            result = aPage.Confirm(TotalPrice, paymentBy);
             aPage.Close();
             Assert.True(result);
         }
