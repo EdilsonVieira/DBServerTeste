@@ -19,23 +19,18 @@ namespace MyStore.Testes
         }
 
         [Theory]
-        //[InlineData(Browser.Firefox, 100, 160.9)]
-        //[InlineData(Browser.Firefox, 230.05, 370.1505)]
-        [InlineData(Browser.Firefox, "vieira.edilson@gmail.com", "canada", "R Bahia, 288", MyStorePageMap.PaymentByBankWire)]
-        //[InlineData(Browser.Firefox, "vieira.edilson@gmail.com", "canada", "R Bahia, 288", MyStorePageMap.PaymentByCheck)]
-        //[InlineData(Browser.Chrome, 100, 160.9)]
-        //[InlineData(Browser.Chrome, 230.05, 370.1505)]
-        //[InlineData(Browser.Chrome, 250.5, 403.0545)]
+        [ClassData(typeof(MyStoreTestData))]
         public void Compra_Completa(
-            Browser browser, string clientEmail, string clientPass, string clientAddress, string paymentBy)
+            Browser browser, PersonalInfo clientData, string paymentBy)
         {
-            MyStorePage aPage =  new MyStorePage(_configuration, browser);
             Boolean result = false;
+
+            MyStorePage aPage =  new MyStorePage(_configuration, browser);
 
             aPage.LoadPage();
             aPage.Summary();
-            aPage.Login(clientEmail, clientPass);
-            aPage.Address(clientAddress);
+            aPage.Login(clientData);
+            aPage.Address(clientData);
             aPage.Shipping();
             aPage.Payment(paymentBy);
             result = aPage.Confirm();

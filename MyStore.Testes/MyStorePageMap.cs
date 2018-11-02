@@ -23,9 +23,28 @@ namespace MyStore.Testes
         public const string OrderConfirmationButton = "/html/body/div/div[2]/div/div[3]/div/form/p/button";
         public const string OrderConfirmationTextElement = "/html/body/div/div[2]/div/div[3]/div/div/p/strong";
         public const string OrderConfirmationText = "Your order on My Store is complete.";
-    }
-    public enum PaymentMethod
-    {
-        
+        // Personal Information
+        public const string PersonalInfoTitleMr = "id_gender1";
+        public const string PersonalInfoTitleMrs = "id_gender2";
+        public const string PersonalInfoFirstName = "customer_firstname";
+        public const string PersonalInfoLastName = "customer_lastname";
+        public const string PersonalInfoEmail = "email";
+        public const string PersonalInfoPassword = "passwd";
+        public const string PersonalInfoBirthDateDay = "days";
+        public const string PersonalInfoBirthDateMonth = "months";
+        public const string PersonalInfoBirthDateYear = "years";
+        public const string PersonalInfoNewsLetter = "newsletter";
+        public const string PersonalInfoSpecialOffers = "optin";
+        public const string PersonalInfoCompany = "company";
+        public const string PersonalInfoAddress1 = "address1";
+        public const string PersonalInfoAddress2 = "address2";
+        public const string PersonalInfoCity = "city";
+        public const string PersonalInfoState = "id_state";
+        public const string PersonalInfoZipCode = "postcode";
+        public const string PersonalInfoCountry = "id_country";
+        public const string PersonalInfoAdditional = "other";
+        public const string PersonalInfoHomePhone = "phone";
+        public const string PersonalInfoMobilePhone = "phone_mobile";
+        public const string PersonalInfoSubmitButton = "submitAccount";
     }
 }

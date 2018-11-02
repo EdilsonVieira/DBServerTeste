@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
+
 namespace Selenium.Utils
 {
     public static class WebDriverExtensions
@@ -54,5 +55,34 @@ namespace Selenium.Utils
             IWebElement webElement = webDriver.FindElement(by);
             webElement.Submit();
         }
+        public static Boolean IsElementPresent(this IWebDriver webDriver, int timeToWait, By by)
+        {
+            try
+            {
+                WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(timeToWait));
+                wait.Until((d) => d.FindElement(by) != null);
+                webDriver.FindElement(by);
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
+        public static void SetSelectionValue(this IWebDriver webDriver,
+            By by, string text)
+        {
+            IWebElement webElement = webDriver.FindElement(by);
+            SelectElement sel = new SelectElement(webElement);
+            sel.SelectByValue(text);
+        }
+        public static void SetSelectionText(this IWebDriver webDriver,
+            By by, string text)
+        {
+            IWebElement webElement = webDriver.FindElement(by);
+            SelectElement sel = new SelectElement(webElement);
+            sel.SelectByText(text);
+        }
+
     }
 }

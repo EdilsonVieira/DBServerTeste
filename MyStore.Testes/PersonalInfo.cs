@@ -4,34 +4,63 @@ using System.Text;
 
 namespace MyStore.Testes
 {
-    class Address
+    public class Address
     {
-        string Address1;
-        string Address2;
-        string City;
-        string State;
-        string ZipCode;
-        string Country;
+        public Address(string anAddress1, string anAddress2, string aCity, string aState
+            , string aZipoCode, string aCountry)
+        {
+            Address1 = anAddress1;
+            Address2 = anAddress2;
+            City = aCity;
+            State = aState;
+            ZipCode = aZipoCode;
+            Country = aCountry;
+        }
+        public string Address1;
+        public string Address2;
+        public string City;
+        public string State;
+        public string ZipCode;
+        public string Country;
     }
     public enum TitleEnum
     {
         Mr, Mrs
     }
-    class PersonalInfo
+    public class PersonalInfo
     {
-        TitleEnum Title;
-        string FirstName;
-        string LastName;
-        string Email;
-        string Password;
-        DateTime BirthDate;
-        Boolean Newsletter;
-        Boolean SpecialOffers;
-        string Company;
-        Address Address;
-        string AddressAlias;
-        string AdditionalInfo;
-        string HomePhone;
-        string MobilePhone;
+        public PersonalInfo(TitleEnum aTitle, string aFirstName, string aLastName, string anEmail, string aPassword
+            , DateTime aBirthDate, Boolean aNewsLetter, Boolean aSpecialOffers, string aCompany, Address anAddress
+            , string anAddressAlias, string anAditionalInfo, string aHomePhone, string aMobilePhone)
+        {
+            Title = aTitle;
+            FirstName = aFirstName;
+            LastName = aLastName;
+            Email = anEmail;
+            Password = aPassword;
+            BirthDate = aBirthDate;
+            Newsletter = aNewsLetter;
+            SpecialOffers = aSpecialOffers;
+            Company = aCompany;
+            Address = anAddress;
+            AddressAlias = anAddressAlias;
+            AdditionalInfo = anAditionalInfo;
+            HomePhone = aHomePhone;
+            MobilePhone = aMobilePhone;
+        }
+        public TitleEnum Title;
+        public string FirstName;
+        public string LastName;
+        public string Email;
+        public string Password;
+        public DateTime BirthDate;
+        public Boolean Newsletter;
+        public Boolean SpecialOffers;
+        public string Company;
+        public Address Address;
+        public string AddressAlias;
+        public string AdditionalInfo;
+        public string HomePhone;
+        public string MobilePhone;
     }
 }

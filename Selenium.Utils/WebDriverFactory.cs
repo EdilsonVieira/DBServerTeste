@@ -16,9 +16,11 @@ namespace Selenium.Utils
                 case Browser.Firefox:
                     FirefoxDriverService service =
                         FirefoxDriverService.CreateDefaultService(pathDriver);
+                    FirefoxOptions ffOptions = new FirefoxOptions();
+                    
 
-                    webDriver = new FirefoxDriver(service);
-
+                    webDriver = new FirefoxDriver(service, ffOptions, System.TimeSpan.FromMinutes(2) );
+                    
                     break;
                 case Browser.Chrome:
                     webDriver = new ChromeDriver(pathDriver);

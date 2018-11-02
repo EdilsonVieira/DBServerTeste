@@ -675,6 +675,18 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Selenium.Support/3.14.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "3.14.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/WebDriver.Support.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/WebDriver.Support.dll": {}
+        }
+      },
       "Selenium.WebDriver/3.14.0": {
         "type": "package",
         "dependencies": {
@@ -1729,6 +1741,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Selenium.Support": "3.14.0",
           "Selenium.WebDriver": "3.14.0"
         },
         "compile": {
@@ -2694,6 +2707,24 @@
         "lib/netstandard1.0/_._",
         "runtime.native.system.4.0.0.nupkg.sha512",
         "runtime.native.system.nuspec"
+      ]
+    },
+    "Selenium.Support/3.14.0": {
+      "sha512": "9lvW/H8dLL7rHQoLSUNaGGKCxwIaoW9LOrS1W7wXyXqr6Od+3bGXsLUITX63BdJ4PJ2UEOBoHk/aCg9BApSdZA==",
+      "type": "package",
+      "path": "selenium.support/3.14.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net35/WebDriver.Support.dll",
+        "lib/net35/WebDriver.Support.xml",
+        "lib/net40/WebDriver.Support.dll",
+        "lib/net40/WebDriver.Support.xml",
+        "lib/net45/WebDriver.Support.dll",
+        "lib/net45/WebDriver.Support.xml",
+        "lib/netstandard2.0/WebDriver.Support.dll",
+        "lib/netstandard2.0/WebDriver.Support.xml",
+        "selenium.support.3.14.0.nupkg.sha512",
+        "selenium.support.nuspec"
       ]
     },
     "Selenium.WebDriver/3.14.0": {
